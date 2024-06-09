@@ -4,6 +4,8 @@
 \usepackage{array}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage{dirtytalk}
+\usepackage{graphicx}
 
 \beamertemplatenavigationsymbolsempty
 
@@ -35,11 +37,10 @@
 }
 \lstset{style=mystyle} 
 
-\title{Genome Sequencing}
-\subtitle{Peerteaching}
+\title{Population Genetics}
+\subtitle{Peerteaching KW24}
 \author{Samuel Hehn \\ Swastik Kashyap}
 \institute{Universität Tübingen}
-% \usetheme{Boadilla}
 \usetheme{Goettingen}
 \date{\today}
 
@@ -59,5 +60,110 @@
         \tableofcontents
     \end{frame}
     }
+
+    \section{The coalescent process}
+
+        \begin{frame}
+            \frametitle{The coalescent process}
+            \say{\textit{to coalesce}}: grow together, to join, to fuse
+
+            \begin{definition}[coalescent event]<2->
+                % TODO
+                \textit{
+                    If traversing the sequence-transmission paths backward in time,
+                    two sequence transmission paths intersect at some sequence,
+                    the paths coalesce at that intersection point. \\
+                    This is called a coalescent event.
+                }
+            \end{definition}
+        
+            \begin{block}{Basic idea}<3->
+                \begin{itemize}
+                    \item<4-> Start with present-day generation
+                    \item<5-> Construct previous generations
+                    \item<6-> By randomly choosing parents in the previous generation
+                \end{itemize}
+            \end{block}
+        \end{frame}
+
+        \begin{frame}
+            \frametitle{The coalescent process}
+            \framesubtitle{Example}
+            \only<2>{\includegraphics[page=1, width=\textwidth]{figures/coalescent_process.pdf}}
+            \only<3>{\includegraphics[page=2, width=\textwidth]{figures/coalescent_process.pdf}}
+            \only<4>{\includegraphics[page=3, width=\textwidth]{figures/coalescent_process.pdf}}
+            \only<5>{\includegraphics[page=4, width=\textwidth]{figures/coalescent_process.pdf}}
+            \only<6>{\includegraphics[page=5, width=\textwidth]{figures/coalescent_process.pdf}}
+            \only<7>{\includegraphics[page=6, width=\textwidth]{figures/coalescent_process.pdf}}
+            \only<8>{\includegraphics[page=7, width=\textwidth]{figures/coalescent_process.pdf}}
+            
+        
+        \end{frame}
+
+    \section{The standard coalescent model}
+        \begin{frame}
+            \frametitle{The standard coalescent model}
+            Construct a tree based on estimated coalescent events. \\
+
+            Needs more content
+
+        \end{frame}
+
+        \begin{frame}
+            \frametitle{Coalescence of 2 genes}
+            Considering a haploid model with $n$ genes. \\
+            For two present day genes $i$ and $j$, when did they coalesce? \\
+            \onslide<2->{We want two know two things:}
+            \begin{enumerate}
+                \item<3-> When did the two genes coalesce? \\
+                      \onslide<4->{$\rightarrow$ Who is their common ancestor}
+                \item<5-> How long is the waiting time until the two genes coalesced? \\
+                      \onslide<6->{$\rightarrow$ How many generations back is their common ancestor?}
+            \end{enumerate}
+        \end{frame}
+
+        \begin{frame}
+            \frametitle{Coalescence of 2 genes}
+            \framesubtitle{When did the two genes coalesce? }
+                \onslide<2->{
+                    We select a random ancestor for each individual: \\
+                }
+                \onslide<3->{
+                    Probability to select the right ancestor of $i$ is $1$, since there are no requirements. \\
+                }
+                \onslide<4->{
+                    Probability to select the right ancestor of $j$ is
+                }
+                \onslide<5->{
+                    $$\frac{1}{n}$$
+                    since we need to "hit" the ancestor we've chosen for $i$.
+                }
+        \end{frame}
+
+        \begin{frame}
+            \frametitle{Coalescence of 2 genes}
+            \framesubtitle{How long is the waiting time until the two genes coalesced?}
+            \onslide<2->{
+                What is the Probability that the common ancestor is in Generation $n$? \\
+            }
+            \onslide<3->{
+                ($n-1$ failures following one success)
+            }
+            \onslide<4->{
+                \[
+                    \left( 1 - \frac{1}{n} \right)^{n-1} \onslide<5->{\cdot \left( \frac{1}{n} \right)}
+                \]
+            }
+        \end{frame}
+
+        \begin{frame}
+            \frametitle{Coalescence of k genes}
+
+        \end{frame}
+
+        \begin{frame}
+            \frametitle{Continous time coalescent model}
+
+        \end{frame}
 
 \end{document}
