@@ -1,0 +1,63 @@
+\documentclass{beamer}
+
+\usepackage[ngerman]{babel}
+\usepackage{array}
+\usepackage{listings}
+\usepackage{caption}
+
+\beamertemplatenavigationsymbolsempty
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{HTML}{C42043}
+\definecolor{backcolour}{HTML}{F2F2F2}
+\definecolor{bookColor}{cmyk}{0,0,0,0.90}  
+\color{bookColor}
+
+\lstset{upquote=true}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{codepurple},
+    numberstyle=\footnotesize\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=-10pt,
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,      
+}
+\lstset{style=mystyle} 
+
+\title{Genome Sequencing}
+\subtitle{Peerteaching}
+\author{Samuel Hehn \\ Swastik Kashyap}
+\institute{Universität Tübingen}
+% \usetheme{Boadilla}
+\usetheme{Goettingen}
+\date{\today}
+
+\begin{document}
+
+    {
+    \setbeamertemplate{sidebar right}{}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+    }
+
+    {
+    \setbeamertemplate{sidebar right}{}
+    \begin{frame}
+        \frametitle{Inhalt}
+        \tableofcontents
+    \end{frame}
+    }
+
+\end{document}
