@@ -61,14 +61,68 @@
     \end{frame}
     }
 
+    \section{Calculating Populations}
+        \begin{frame}
+            \frametitle{Calculating decendants}
+            What is the probability of any gene $i$ to have at least one decendant (It does not \say{die out})? \\
+            \onslide<2->{
+                We look at the inverse probability, a gene has no decendants.
+            }
+            \onslide<3->{
+                \[
+                    \implies \mathbb{P}_{\text{Poisson}}(X = k) = \frac{\lambda^{k}}{k!} e^{-\lambda}
+                \]
+            }
+            \onslide<4->{
+                Since the population keeps it size from generation to generation, the average number of decendants per gene is 1.
+            }
+            \onslide<5->{
+                \[
+                    \implies \mathbb{P}_{\text{Poisson}}(X=k) = \frac{1}{k!}e^{-1}
+                \]
+            }
+            \onslide<6->{
+                No decendants: ($k=0$)
+                \[
+                    \mathbb{P}_{\text{Poisson}}(X=0) = e^{-1} \approx 0.37
+                \]
+            }
+            \onslide<6->{
+                At least one decendant: 
+                \[
+                    1 - 0.37 \approx 0.63
+                \]
+            }
+        \end{frame}
+
+        \begin{frame}
+            \frametitle{Calculating decendants}
+            \framesubtitle{Why is this useful?}
+            What was the size of a population of $10\,000$ genes $t=15$ generations ago? \\
+            \onslide<2->{
+                \[
+                    10\,000 \cdot 0.63^{15} 
+                    \onslide<3->{\approx 10}
+                \]
+            }
+            \onslide<4->{
+                So a population of $10\,000$ genes would have most likely evolved from just $10$ genes over a course of 15 generations. \\
+            }
+            \vspace*{1cm}
+            \onslide<5->{
+                This means we can now find out how many generations back there was just one individual (the most recent common ancestor of our whole population).
+            }
+        
+        \end{frame}
+
     \section{The coalescent process}
 
         \begin{frame}
             \frametitle{The coalescent process}
             \say{\textit{to coalesce}}: grow together, to join, to fuse
 
+
             \begin{definition}[coalescent event]<2->
-                % TODO
                 \textit{
                     If traversing the sequence-transmission paths backward in time,
                     two sequence transmission paths intersect at some sequence,
@@ -135,7 +189,7 @@
                     Probability to select the right ancestor of $j$ is
                 }
                 \onslide<5->{
-                    $$\frac{1}{n}$$
+                    $$P(T_{2} = 1) = \frac{1}{n}$$
                     since we need to "hit" the ancestor we've chosen for $i$.
                 }
         \end{frame}
@@ -144,26 +198,41 @@
             \frametitle{Coalescence of 2 genes}
             \framesubtitle{How long is the waiting time until the two genes coalesced?}
             \onslide<2->{
-                What is the Probability that the common ancestor is in Generation $n$? \\
+                What is the Probability that the common ancestor is in Generation $t$? \\
             }
             \onslide<3->{
                 ($n-1$ failures following one success)
-            }
-            \onslide<4->{
                 \[
-                    \left( 1 - \frac{1}{n} \right)^{n-1} \onslide<5->{\cdot \left( \frac{1}{n} \right)}
+                    P(T_{2} = t) = 
+                    \onslide<4->{\left( 1 - \frac{1}{n} \right)^{n-1}}
+                    \onslide<5->{\cdot \left( \frac{1}{n} \right)}
                 \]
             }
         \end{frame}
 
         \begin{frame}
-            \frametitle{Coalescence of k genes}
-
+            \frametitle{Coalescence of 2 genes}
+            \framesubtitle{Exercise}
+            Let's assume $n = 50$ \\
+            What is the probability that two genes coalesce exactly 5 generations in the past? \\ 
+                \[
+                    P(T_{2} = 5) =
+                    \onslide<2->{\left(1 - \frac{1}{50}\right)^{5-1} \cdot \frac{1}{50}}
+                    \onslide<3->{\approx 0.01845 = 1.845\%}
+                \]
         \end{frame}
 
         \begin{frame}
-            \frametitle{Continous time coalescent model}
-
+            \frametitle{Coalescence of 2 genes}
+            \framesubtitle{Exercise}
+            Let's assume $n = 50$ \\
+            What is the probability that it takes them at least 5 generations to coalesce? \\ 
+                \[
+                    P(T_{2} > 5) =
+                    \onslide<2->{\left(1 - \frac{1}{50}\right)^{5-1}}
+                    \onslide<3->{\approx 0.92237 = 92.237\%}
+                \]
         \end{frame}
+
 
 \end{document}
