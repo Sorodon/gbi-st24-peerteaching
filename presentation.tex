@@ -282,7 +282,7 @@
                 What is the Probability that the common ancestor is in Generation $t$? \\
             }
             \onslide<3->{
-                ($n-1$ failures following one success)
+                ($t-1$ failures following one success)
                 \[
                     P(T_{2} = t) = 
                     \onslide<4->{\left( 1 - \frac{1}{n} \right)^{n-1}}
@@ -310,8 +310,9 @@
             What is the probability that it takes them at least 5 generations to coalesce? \\ 
                 \[
                     P(T_{2} > 5) =
-                    \onslide<2->{\left(1 - \frac{1}{50}\right)^{5-1}}
-                    \onslide<3->{\approx 0.92237 = 92.237\%}
+                    \onslide<2->{\left(1 - \frac{1}{50}\right)^{5}}
+                    \onslide<3->{\approx 0.903921
+                    = 90.392\%}
                 \]
         \end{frame}
 
